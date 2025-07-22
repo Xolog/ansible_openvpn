@@ -19,7 +19,7 @@
 
 - name: VPN | Revokation | Get locally defined users names
   set_fact:
-  usernames: "{{ ((usernames | default([])) + (clients | default([]) | map(attribute='name') | list)) | unique }}"
+    usernames: "{{ ((usernames | default([])) + (clients | default([]) | map(attribute='name') | list)) | unique }}"
 
 - name: VPN | Revokation | Check for already revoked users in local list
   fail:
