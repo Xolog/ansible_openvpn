@@ -24,6 +24,7 @@ additional_pushes:
 allow_masquerade: True
 # Server address and type
 server_port: 1494
+management_address: 127.0.0.1
 protocol: udp
 # Valid values: tun, tap
 dev_type: tun
@@ -113,3 +114,5 @@ use_ldap: False
 enable_2fa: False
 client_2fa_dir_path: /etc/openvpn/client_2fa
 client_2fa_server_description: "{{ server_name }}"
+
+use_ui: false

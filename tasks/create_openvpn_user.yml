@@ -108,6 +108,30 @@
     - create_users
     - openvpn_users
 
+- name: VPN | Client config creation | Create conf directory
+  file: 
+    path: /etc/openvpn/config
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  tags: 
+    - create_users
+    - openvpn_users
+  when: use_ui
+
+- name: VPN | Client config creation | Generate config for ui
+  template:
+    src: templates/client.conf
+    dest: /etc/openvpn/config/client.conf
+    owner: root
+    group: root
+    mode: 0666
+  tags: 
+    - create_users
+    - openvpn_users
+  when: use_ui
+
 - name: VPN | Client config creation | Fetch client config to localhost
   fetch:
     src: /etc/openvpn/client_keys/{{ user.name }}/{{ user.name }}.ovpn

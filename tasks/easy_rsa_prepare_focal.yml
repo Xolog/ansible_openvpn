@@ -14,3 +14,16 @@
   template:
     src: easy_rsa_vars.focal
     dest: /etc/openvpn/easy-rsa/vars
+
+- name: VPN | Configuration | Copy easy-rsa vars to config directory
+  copy:
+    src: /etc/openvpn/easy-rsa/vars
+    dest: /etc/openvpn/config/easy-rsa.vars
+    remote_src: true
+    mode: 0644
+
+- name: VPN | Configuration | Create sym-link for pki
+  file: 
+    src: /etc/openvpn/easy-rsa/pki
+    dest: /etc/openvpn/pki
+    state: link
