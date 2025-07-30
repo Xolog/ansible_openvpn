@@ -60,7 +60,7 @@
     src: "{{ item.src }}"
     dest: "{{ item.dest }}"
   with_items:
-    - { src: 'server.conf', dest: '/etc/openvpn/server.conf' }
+    - { src: 'openvpn.conf', dest: '/etc/openvpn/{{ server_conf_name }}.conf' }
   notify:
     - Restart OpenVPN
   tags: ['openvpn_config']

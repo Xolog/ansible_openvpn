@@ -1,4 +1,7 @@
 ---
+# For old installation use 'openvpn' name, for new use 'server'.
+server_conf_name: openvpn
+
 # Filename for target server keypair file. It can be useful in case
 # you already had some OpenVPN PKI and now just want to migrate to the new
 # version, so if you had OpenVPN server keys named after 'some.name.[key,crt]'

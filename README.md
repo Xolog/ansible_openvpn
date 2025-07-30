@@ -15,6 +15,9 @@ all will be fixed.
 #### Role Variables
 
 ```yaml
+# For old installation use 'openvpn' name, for new use 'server'.
+server_conf_name: openvpn
+
 # Filename for target server keypair file. It can be useful in case
 # you already had some OpenVPN PKI and now just want to migrate to the new
 # version, so if you had OpenVPN server keys named after 'some.name.[key,crt]'
@@ -33,6 +36,7 @@ additional_pushes:
  - "redirect-gateway def1"
 # Server address and type
 server_port: 1494
+management_address: 127.0.0.1
 protocol: udp
 # Valid values: tun, tap
 dev_type: tun
@@ -65,6 +69,9 @@ cert_prefix: ""
 # per list element, like ['tun-mtu 1420', 'topology subnet',
 # 'explicit-exit-notify 1']
 additional_configs: []
+
+# Set True for integration with role [ansible-openvpn-ui](https://github.com/Xolog/ansible-openvpn-ui)
+use_ui: false
 ```
 
 For full list of variables look to `defaults/main.yml` file.
